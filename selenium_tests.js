@@ -24,7 +24,7 @@ def test_auth_login():
     password_input.send_keys("password1234")
     submit_button.click()
 
-    # Waiting for login to complete, adjust selector based on your app
+    # Waiting for login to complete
     WebDriverWait(driver, 10).until(
         EC.url_changes("http://54.164.133.188:3000/auth")
     )
@@ -38,7 +38,7 @@ def test_add_new_place():
     title_input = driver.find_element(By.ID, "title")
     description_input = driver.find_element(By.ID, "description")
     address_input = driver.find_element(By.ID, "address")
-    image_upload = driver.find_element(By.ID, "image")  # Adjust the selector if necessary
+    image_upload = driver.find_element(By.ID, "image")   
     submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 
     title_input.send_keys("Test Place")
@@ -48,10 +48,10 @@ def test_add_new_place():
 
     submit_button.click()
 
-    # Wait for place addition to complete, adjust selector based on your app
+    # Waiting for place addition to complete
     WebDriverWait(driver, 10).until(
         EC.url_changes("http://54.164.133.188:3000/places/new")
     )
 
-    # Check if the new place was added (adjust according to your application logic)
+    # Checking if the new place was added 
     assert "places" in driver.current_url
